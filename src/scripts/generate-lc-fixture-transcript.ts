@@ -14,11 +14,11 @@ import {
   setupLostCitiesGame,
   executeAction,
   getVisibleState,
-} from '../example-games/lost-cities/LostCitiesGame';
-import type { LostCitiesSession, PlayerId } from '../example-games/lost-cities/LostCitiesGame';
-import { LCTranscriptRecorder } from '../example-games/lost-cities/GameTranscript';
-import { LostCitiesAiPlayer, GreedyStrategy } from '../example-games/lost-cities/AiStrategy';
-import type { TurnPhase } from '../example-games/lost-cities/LostCitiesRules';
+} from '../LostCitiesGame';
+import type { LostCitiesSession, PlayerId } from '../LostCitiesGame';
+import { LCTranscriptRecorder } from '../GameTranscript';
+import { LostCitiesAiPlayer, GreedyStrategy } from '../AiStrategy';
+import type { TurnPhase } from '../LostCitiesRules';
 import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, resolve } from 'path';
 
