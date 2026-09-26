@@ -3,7 +3,7 @@
  *
  * Uses the SLL layout JSON as the single source of truth for zone positioning.
  *
- * @module example-games/lost-cities/scenes/LostCitiesLayoutAdapter
+ * @module src/scenes/LostCitiesLayoutAdapter
  */
 
 import { anchorPoint } from '@ui/screen-layout';

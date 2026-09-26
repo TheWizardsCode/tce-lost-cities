@@ -19,7 +19,7 @@ import {
   CARD_BACK_KEY,
   EXPEDITION_HEX,
   colorDisplayName,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import { createSeededRng } from '@core-engine/SeededRng';
 
 // ── Constants ──────────────────────────────────────────────

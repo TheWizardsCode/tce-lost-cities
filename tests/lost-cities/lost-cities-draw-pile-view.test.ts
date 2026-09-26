@@ -11,7 +11,7 @@
  * allows PileView and its subclasses to construct test instances.
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { CARD_H } from '../../example-games/lost-cities/scenes/LostCitiesConstants';
+import { CARD_H } from '../../src/scenes/LostCitiesConstants';
 import { PileView } from '@ui/PileView';
 
 // Mock Phaser before any module that imports it is loaded.
@@ -54,7 +54,7 @@ vi.mock('phaser', () => {
 // Also mock the ui barrel module that LostCitiesConstants imports from,
 // to prevent it from trying to load the hiDpiText side-effect module
 // which accesses Phaser's GameObjects.Text.prototype.
-vi.mock('../../example-games/lost-cities/../../../src/ui', () => ({
+vi.mock('../../src/../../../src/ui', () => ({
   GAME_W: 960,
   GAME_H: 600,
   FONT_FAMILY: 'monospace',
@@ -140,7 +140,7 @@ describe('DrawPileView', () => {
 
   it('positions count text below the card bottom edge (countOffsetY > CARD_H/2)', async () => {
     const mod = await import(
-      '../../example-games/lost-cities/scenes/LostCitiesRenderer'
+      '../../src/scenes/LostCitiesRenderer'
     );
     const DrawPileViewCtor = mod.DrawPileView;
 
@@ -171,7 +171,7 @@ describe('DrawPileView', () => {
 
   it('extends PileView and has the expected prototype chain', async () => {
     const mod = await import(
-      '../../example-games/lost-cities/scenes/LostCitiesRenderer'
+      '../../src/scenes/LostCitiesRenderer'
     );
     const DrawPileViewCtor = mod.DrawPileView;
 
@@ -189,7 +189,7 @@ describe('DrawPileView', () => {
 
   it('count text remains positioned below card bottom edge in empty state', async () => {
     const mod = await import(
-      '../../example-games/lost-cities/scenes/LostCitiesRenderer'
+      '../../src/scenes/LostCitiesRenderer'
     );
     const DrawPileViewCtor = mod.DrawPileView;
 

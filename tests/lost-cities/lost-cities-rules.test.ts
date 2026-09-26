@@ -4,7 +4,7 @@ import type {
   NumberedCard,
   LostCitiesCard,
   ExpeditionColor,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import {
   isLegalPlay,
   checkPhase1Legality,
@@ -15,7 +15,7 @@ import {
   isRoundOver,
   type RulesGameView,
   type Phase2Action,
-} from '../../example-games/lost-cities/LostCitiesRules';
+} from '../../src/LostCitiesRules';
 
 // ── Test helpers ───────────────────────────────────────────
 

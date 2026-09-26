@@ -2,10 +2,10 @@ import { describe, it, expect } from 'vitest';
 import type {
   ExpeditionColor,
   LostCitiesCard,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import {
   EXPEDITION_COLORS,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import {
   setupLostCitiesGame,
   executeAction,
@@ -13,18 +13,18 @@ import {
   isMatchOver,
   startNextRound,
   type VisibleState,
-} from '../../example-games/lost-cities/LostCitiesGame';
+} from '../../src/LostCitiesGame';
 import {
   RandomStrategy,
   GreedyStrategy,
   LostCitiesAiPlayer,
   createOpponentDrawHistory,
   estimatePositiveScoreProbability,
-} from '../../example-games/lost-cities/AiStrategy';
+} from '../../src/AiStrategy';
 import { createSeededRng } from '@core-engine/SeededRng';
 import type {
   InvestmentCard,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 
 
 

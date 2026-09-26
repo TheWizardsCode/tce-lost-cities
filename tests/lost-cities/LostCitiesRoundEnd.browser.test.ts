@@ -18,8 +18,8 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import Phaser from 'phaser';
 import { waitForScene } from '@core-tests/helpers/waitForScene';
-import type { LostCitiesCard, ExpeditionColor, NumberedRank } from '../../example-games/lost-cities/LostCitiesCards';
-import { EXPEDITION_COLORS } from '../../example-games/lost-cities/LostCitiesCards';
+import type { LostCitiesCard, ExpeditionColor, NumberedRank } from '../../src/LostCitiesCards';
+import { EXPEDITION_COLORS } from '../../src/LostCitiesCards';
 
 // ── Helpers ─────────────────────────────────────────────────
 
@@ -59,7 +59,7 @@ async function bootGame(): Promise<Phaser.Game> {
   document.body.appendChild(container);
 
   const { createLostCitiesGame } = await import(
-    '../../example-games/lost-cities/createLostCitiesGame'
+    '../../src/createLostCitiesGame'
   );
   const game = createLostCitiesGame({ type: Phaser.CANVAS });
   await waitForScene(game, 'LostCitiesScene');

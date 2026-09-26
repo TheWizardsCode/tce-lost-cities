@@ -6,35 +6,35 @@ import { describe, it, expect } from 'vitest';
 import {
   snapshotLCCard,
   LCTranscriptRecorder,
-} from '../../example-games/lost-cities/GameTranscript';
+} from '../../src/GameTranscript';
 import type {
   LCCardSnapshot,
   LostCitiesTranscript,
   TurnActionRecord,
   PlayerBoardSnapshot,
-} from '../../example-games/lost-cities/GameTranscript';
+} from '../../src/GameTranscript';
 import {
   setupLostCitiesGame,
   executeAction,
   getVisibleState,
   isMatchOver,
   startNextRound,
-} from '../../example-games/lost-cities/LostCitiesGame';
+} from '../../src/LostCitiesGame';
 import type {
   LostCitiesSession,
-} from '../../example-games/lost-cities/LostCitiesGame';
+} from '../../src/LostCitiesGame';
 import {
   EXPEDITION_COLORS,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import type {
   ExpeditionColor,
   InvestmentCard,
   NumberedCard,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import {
   RandomStrategy,
   LostCitiesAiPlayer,
-} from '../../example-games/lost-cities/AiStrategy';
+} from '../../src/AiStrategy';
 import { createSeededRng } from '@core-engine/SeededRng';
 
 // ── Test card factories ────────────────────────────────────

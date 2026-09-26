@@ -2,13 +2,13 @@ import { describe, it, expect } from 'vitest';
 import type {
   LostCitiesCard,
   ExpeditionColor,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import {
   EXPEDITION_COLORS,
   HAND_SIZE,
   ROUND_COUNT,
   DECK_SIZE,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import {
   setupLostCitiesGame,
   executeAction,
@@ -23,11 +23,11 @@ import {
   buildRulesGameView,
   type LostCitiesSession,
   type TurnResult,
-} from '../../example-games/lost-cities/LostCitiesGame';
+} from '../../src/LostCitiesGame';
 import type {
   Phase1Action,
   Phase2Action,
-} from '../../example-games/lost-cities/LostCitiesRules';
+} from '../../src/LostCitiesRules';
 import { createSeededRng } from '@core-engine/SeededRng';
 
 // ── Setup tests ────────────────────────────────────────────

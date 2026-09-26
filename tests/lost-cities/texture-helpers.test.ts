@@ -19,7 +19,7 @@ import {
   EXPEDITION_COLORS,
   cardAssetKey,
   compactAssetKey,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import { makeTextureKey } from '@core-engine/SvgHelpers';
 
 // ── Constants ────────────────────────────────────────────────
@@ -167,38 +167,38 @@ describe('cardAssetKey and compactAssetKey', () => {
 
 describe('getLcTextureKey', () => {
   it('should produce a DPR-aware key for a full-size card', async () => {
-    const { getLcTextureKey } = await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+    const { getLcTextureKey } = await import('../../src/LostCitiesTextureHelpers');
     const key = getLcTextureKey('lc-blue-5', CARD_W, CARD_H, 2);
     expect(key).toBe('ms_card_lc-blue-5_95x130@2');
   });
 
   it('should produce a DPR-aware key for a compact card', async () => {
-    const { getLcTextureKey } = await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+    const { getLcTextureKey } = await import('../../src/LostCitiesTextureHelpers');
     const key = getLcTextureKey('lc-blue-5-sm', DISCARD_CARD_W, DISCARD_CARD_H, 2);
     expect(key).toBe('ms_card_lc-blue-5-sm_57x78@2');
   });
 
   it('should produce a DPR-aware key for the card back', async () => {
-    const { getLcTextureKey } = await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+    const { getLcTextureKey } = await import('../../src/LostCitiesTextureHelpers');
     const key = getLcTextureKey(CARD_BACK_KEY, CARD_W, CARD_H, 2);
     expect(key).toBe('ms_card_lc-back_95x130@2');
   });
 
   it('should default DPR to 1 in Node environment', async () => {
-    const { getLcTextureKey } = await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+    const { getLcTextureKey } = await import('../../src/LostCitiesTextureHelpers');
     const key = getLcTextureKey('lc-green-10', CARD_W, CARD_H);
     // In Node test environment, window is undefined, so DPR defaults to 1
     expect(key).toBe('ms_card_lc-green-10_95x130@1');
   });
 
   it('should round non-integer dimensions', async () => {
-    const { getLcTextureKey } = await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+    const { getLcTextureKey } = await import('../../src/LostCitiesTextureHelpers');
     const key = getLcTextureKey('lc-yellow-inv1', 94.7, 129.3, 1);
     expect(key).toBe('ms_card_lc-yellow-inv1_95x129@1');
   });
 
   it('should produce consistent keys with SvgHelpers.makeTextureKey', async () => {
-    const { getLcTextureKey } = await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+    const { getLcTextureKey } = await import('../../src/LostCitiesTextureHelpers');
     const direct = makeTextureKey('lc-blue-5', CARD_W, CARD_H, 1);
     const helper = getLcTextureKey('lc-blue-5', CARD_W, CARD_H, 1);
     expect(helper).toBe(direct);
@@ -210,7 +210,7 @@ describe('getLcTextureKey', () => {
 describe('lazy rasterisation helpers', () => {
   it('preloadLostCitiesAssets populates svgTextCache for Node environment', async () => {
     const { preloadLostCitiesAssets, ensureLcCardTexture } =
-      await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+      await import('../../src/LostCitiesTextureHelpers');
 
     const scene = createMockScene();
     preloadLostCitiesAssets(scene);
@@ -226,7 +226,7 @@ describe('lazy rasterisation helpers', () => {
 
   it('ensureLcCompactTexture returns DPR-aware key for a compact card after preload', async () => {
     const { preloadLostCitiesAssets, ensureLcCompactTexture } =
-      await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+      await import('../../src/LostCitiesTextureHelpers');
 
     const scene = createMockScene();
     preloadLostCitiesAssets(scene);
@@ -239,7 +239,7 @@ describe('lazy rasterisation helpers', () => {
 
   it('ensureLcBackTexture returns DPR-aware key for card back after preload', async () => {
     const { preloadLostCitiesAssets, ensureLcBackTexture } =
-      await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+      await import('../../src/LostCitiesTextureHelpers');
 
     const scene = createMockScene();
     preloadLostCitiesAssets(scene);
@@ -252,7 +252,7 @@ describe('lazy rasterisation helpers', () => {
 
   it('ensureLcCardTexture returns fallback template ID key when no SVG text available', async () => {
     const { ensureLcCardTexture } =
-      await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+      await import('../../src/LostCitiesTextureHelpers');
 
     const scene = createMockScene();
     // Don't preload — there should be no SVG text available.
@@ -265,7 +265,7 @@ describe('lazy rasterisation helpers', () => {
 
   it('returns consistent keys for the same templateId across calls', async () => {
     const { preloadLostCitiesAssets, ensureLcCardTexture } =
-      await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+      await import('../../src/LostCitiesTextureHelpers');
 
     const scene = createMockScene();
     preloadLostCitiesAssets(scene);
@@ -278,7 +278,7 @@ describe('lazy rasterisation helpers', () => {
 
   it('handles investment cards correctly via cardAssetKey', async () => {
     const { preloadLostCitiesAssets, ensureLcCardTexture } =
-      await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+      await import('../../src/LostCitiesTextureHelpers');
 
     const scene = createMockScene();
     preloadLostCitiesAssets(scene);
@@ -292,7 +292,7 @@ describe('lazy rasterisation helpers', () => {
 
   it('handles compact card keys correctly via compactAssetKey', async () => {
     const { preloadLostCitiesAssets, ensureLcCompactTexture } =
-      await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+      await import('../../src/LostCitiesTextureHelpers');
 
     const scene = createMockScene();
     preloadLostCitiesAssets(scene);
@@ -306,7 +306,7 @@ describe('lazy rasterisation helpers', () => {
 
   it('preloads all 121 SVGs into cache in Node environment', async () => {
     const { preloadLostCitiesAssets, ensureLcCardTexture } =
-      await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+      await import('../../src/LostCitiesTextureHelpers');
 
     const scene = createMockScene();
     preloadLostCitiesAssets(scene);
@@ -330,7 +330,7 @@ describe('lazy rasterisation helpers', () => {
   describe('getLcFaceKey', () => {
     it('returns DPR-aware key when texture exists in scene', async () => {
       const { getLcFaceKey, preloadLostCitiesAssets, ensureLcCardTexture } =
-        await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+        await import('../../src/LostCitiesTextureHelpers');
 
       const scene = createMockScene();
       preloadLostCitiesAssets(scene);
@@ -349,7 +349,7 @@ describe('lazy rasterisation helpers', () => {
 
     it('returns card back fallback when texture does not exist', async () => {
       const { getLcFaceKey } =
-        await import('../../example-games/lost-cities/LostCitiesTextureHelpers');
+        await import('../../src/LostCitiesTextureHelpers');
 
       const scene = createMockScene();
       // No preload, no texture — should fall back to card back key.

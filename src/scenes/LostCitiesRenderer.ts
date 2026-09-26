@@ -8,7 +8,7 @@
  *
  * Phase 3 migration: CG-0MQBOKB540040Q60, CG-0MQ6IEM9F001JTQD
  *
- * @module example-games/lost-cities/scenes/LostCitiesRenderer
+ * @module src/scenes/LostCitiesRenderer
  */
 import type { Card } from '@card-system/Card';
 import Phaser from 'phaser';

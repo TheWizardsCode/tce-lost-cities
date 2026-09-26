@@ -15,7 +15,7 @@
  * for `getTurnCount()` and `injectTurnState()`.
  *
  * @see ReplayAdapter  -- interface definition
- * @see example-games/lost-cities/GameTranscript.ts  -- LC transcript types
+ * @see src/GameTranscript.ts  -- LC transcript types
  *
  * Related work items:
  * - CG-0MM0GQFZA1WQKILP (Lost Cities replay adapter)

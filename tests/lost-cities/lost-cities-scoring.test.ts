@@ -4,7 +4,7 @@ import type {
   NumberedCard,
   LostCitiesCard,
   ExpeditionColor,
-} from '../../example-games/lost-cities/LostCitiesCards';
+} from '../../src/LostCitiesCards';
 import {
   scoreExpedition,
   scoreExpeditionDetailed,
@@ -14,7 +14,7 @@ import {
   EXPEDITION_BASE_COST,
   EXPEDITION_BONUS,
   EXPEDITION_BONUS_THRESHOLD,
-} from '../../example-games/lost-cities/LostCitiesScoring';
+} from '../../src/LostCitiesScoring';
 
 // ── Test helpers ───────────────────────────────────────────
 
