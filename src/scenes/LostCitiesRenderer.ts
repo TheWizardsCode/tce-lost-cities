@@ -544,6 +544,7 @@ export class LostCitiesRenderer {
       baseY: HAND_TOP + HAND_CARD_H / 2,
       spacing: HAND_OVERLAP,
       cardWidth: HAND_CARD_W,
+      cardHeight: HAND_CARD_H,
       showLabels: false,
       selectionEnabled: false, // Lost Cities manages its own selection via showSelectionHighlight
       clickEnabled: true,
